@@ -36,21 +36,20 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void should_output_welcome_word() throws Exception {
+    public void shouldShowWelcomeWords() throws Exception {
         biblioteca.showWelcomeWords();
 
         verify(consolePrinter).print("welcome to biblioteca");
     }
 
     @Test
-    public void should_output_quit_word() throws Exception {
+    public void shouldShowQuitWords() throws Exception {
         biblioteca.showQuitWords();
 
         verify(consolePrinter).print("good bye");
     }
     @Test
-    public void should_output_successful_checkout() throws Exception {
-
+    public void shouldShowSuccessfulCheckout() throws Exception {
         biblioteca.showSuccessfulCheckout();
 
         verify(consolePrinter).print("Thank you! Enjoy the book");
@@ -58,7 +57,7 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void should_output_unsuccessful_checkout() throws Exception {
+    public void shouldShowUnsuccessfulCheckout() throws Exception {
         biblioteca.showUnsuccessfulCheckout();
 
         verify(consolePrinter).print("That book is not available");
@@ -66,7 +65,7 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void should_output_successful_return() throws Exception {
+    public void shouldShowSuccessfulWhenReturnBook() throws Exception {
         biblioteca.showSuccessfulReturn();
 
         verify(consolePrinter).print("Thank you for returning the book");
@@ -74,7 +73,7 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void should_output_unsuccessful_return() throws Exception {
+    public void shouldShowUnsuccessfulWhenReturnBook() throws Exception {
         biblioteca.showUnsuccessfulReturn();
 
         verify(consolePrinter).print("That is not a valid book to return");
@@ -82,7 +81,7 @@ public class BibliotecaTest {
 
 
     @Test
-    public void should_output_invalid_message() throws Exception {
+    public void shouldShowInvalidMessage() throws Exception {
         biblioteca.showInvalidMessage();
 
         verify(consolePrinter).print("Select a valid option!");
@@ -91,7 +90,7 @@ public class BibliotecaTest {
 
 
     @Test
-    public void should_output_book_title() throws Exception {
+    public void shouldShowBookTitle() throws Exception {
         biblioteca.listTitle();
 
         verify(consolePrinter).print("isbn\tname\tauthor\tyear");
@@ -99,56 +98,62 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void should_set_stopSign_true_when_call_quit() throws Exception {
+    public void shouldSetStopSignTrueWhenQuit() throws Exception {
         biblioteca.quit();
 
         assertEquals(biblioteca.isStopSign(),true);
     }
 
     @Test
-    public void should_return_true_when_call_validateIsbnInput_given_ISBN0001() throws Exception {
+    public void shouldReturnTrueWhenValidateIsbnInputGivenISBN0001() throws Exception {
         boolean result=biblioteca.validateIsbnInput("ISBN0001");
+
         assertEquals(result,true);
     }
 
     @Test
-    public void should_return_false_when_call_validateIsbnInput_given_ISBN0000() throws Exception {
+    public void shouldReturnFalseWhenValidateIsbnInputGivenISBN0000() throws Exception {
         boolean result=biblioteca.validateIsbnInput("ISBN0000");
+
         assertEquals(result,false);
     }
 
 
     @Test
-    public void should_return_false_when_call_validateIsbnInput_given_AAAAAAA() throws Exception {
+    public void shouldReturnFalseWhenValidateIsbnInputGivenAAAAAAA() throws Exception {
+
         boolean result=biblioteca.validateIsbnInput("AAAAAAA");
         assertEquals(result,false);
     }
 
 
     @Test
-    public void should_return_true_when_call_validateMenuId_given_1() throws Exception {
+    public void shouldReturnTrueWhenValidateMenuIdGiven1() throws Exception {
         boolean result=biblioteca.validateMenuId(1);
+
         assertEquals(result,true);
     }
 
 
     @Test
-    public void should_return_false_when_call_validateMenuId_given_9() throws Exception {
+    public void shouldReturnFalseWhenValidatemenuidGiven9() throws Exception {
         boolean result=biblioteca.validateMenuId(9);
+
         assertEquals(result,false);
 
     }
 
 
     @Test
-    public void should_return_false_when_call_validateMenuId_given_negtive() throws Exception {
+    public void shouldReturnFalseWhenValidateMenuIdGivenNegtive() throws Exception {
         boolean result=biblioteca.validateMenuId(-1);
+
         assertEquals(result,false);
     }
 
 
     @Test
-    public void should_output_book_list_when_call_listbook() throws Exception {
+    public void shouldOutputBookListWhenListbook() throws Exception {
         biblioteca.listBooks();
 
         verify(consolePrinter,times(1)).print("isbn\tname\tauthor\tyear");
@@ -158,7 +163,7 @@ public class BibliotecaTest {
 
 
     @Test
-    public void should_output_menu_list_when_call_listmenu() throws Exception {
+    public void shouldOutputMenuListWhenListmenu() throws Exception {
         biblioteca.listMenu();
 
         verify(consolePrinter,times(1)).print("1\tList");

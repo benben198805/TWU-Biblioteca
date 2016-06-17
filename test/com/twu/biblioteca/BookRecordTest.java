@@ -5,9 +5,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by ben on 16-6-12.
- */
 public class BookRecordTest {
     private BookRecord bookRecord;
     @Before
@@ -16,15 +13,17 @@ public class BookRecordTest {
     }
 
     @Test
-    public void should_return_true_when_call_checkoutBook() throws Exception {
+    public void shouldReturenTrueWhenCheckoutBook() throws Exception {
         bookRecord.checkoutBook();
+
         assertEquals(bookRecord.isCheckoutStatus(),true);
     }
 
     @Test
-    public void should_return_false_when_call_checkoutBook_then_returnBook() throws Exception {
+    public void shouldReturnFalseWhenCheckoutBookThenReturnBook() throws Exception {
         bookRecord.checkoutBook();
         bookRecord.returnBook();
+
         assertEquals(bookRecord.isCheckoutStatus(),false);
     }
 }

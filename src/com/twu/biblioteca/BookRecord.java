@@ -9,10 +9,6 @@ public class BookRecord {
         this.checkoutStatus = false;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
-    }
-
     public void setCheckoutStatus(boolean checkoutStatus) {
         this.checkoutStatus = checkoutStatus;
     }
